@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE5048D9134CB2E300B77219 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5048D8134CB2E300B77219 /* CoreLocation.framework */; };
+		BE53CAD6134C8F160071D5C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD5134C8F160071D5C2 /* UIKit.framework */; };
+		BE53CAD8134C8F160071D5C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD7134C8F160071D5C2 /* Foundation.framework */; };
+		BE53CADA134C8F160071D5C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD9134C8F160071D5C2 /* CoreGraphics.framework */; };
+		BE53CAE0134C8F160071D5C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE53CADE134C8F160071D5C2 /* InfoPlist.strings */; };
+		BE53CAE3134C8F160071D5C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53CAE2134C8F160071D5C2 /* main.m */; };
+		BE53CAE6134C8F160071D5C2 /* MyMapAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53CAE5134C8F160071D5C2 /* MyMapAppAppDelegate.m */; };
+		BE53CAE9134C8F160071D5C2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE53CAE7134C8F160071D5C2 /* MainWindow.xib */; };
+		BE53CAEC134C8F160071D5C2 /* MyMapAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */; };
+		BE53CAEF134C8F160071D5C2 /* MyMapAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE53CAED134C8F160071D5C2 /* MyMapAppViewController.xib */; };
+		BE53CAF6134C8F160071D5C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD5134C8F160071D5C2 /* UIKit.framework */; };
+		BE53CAF7134C8F160071D5C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD7134C8F160071D5C2 /* Foundation.framework */; };
+		BE53CAF8134C8F160071D5C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD9134C8F160071D5C2 /* CoreGraphics.framework */; };
+		BE53CB00134C8F160071D5C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE53CAFE134C8F160071D5C2 /* InfoPlist.strings */; };
+		BE53CB03134C8F160071D5C2 /* MyMapAppTests.h in Resources */ = {isa = PBXBuildFile; fileRef = BE53CB02134C8F160071D5C2 /* MyMapAppTests.h */; };
+		BE53CB05134C8F160071D5C2 /* MyMapAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53CB04134C8F160071D5C2 /* MyMapAppTests.m */; };
+		BE53CB0F134C8F350071D5C2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CB0E134C8F350071D5C2 /* MapKit.framework */; };
+		BE53CB2D134CA2580071D5C2 /* WildcardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53CB2C134CA2580071D5C2 /* WildcardGestureRecognizer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE53CAF9134C8F160071D5C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE53CAC8134C8F160071D5C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE53CAD0134C8F160071D5C2;
+			remoteInfo = MyMapApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE5048D8134CB2E300B77219 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BE53CAD1134C8F160071D5C2 /* MyMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE53CAD5134C8F160071D5C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE53CAD7134C8F160071D5C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE53CAD9134C8F160071D5C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE53CADD134C8F160071D5C2 /* MyMapApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyMapApp-Info.plist"; sourceTree = "<group>"; };
+		BE53CADF134C8F160071D5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE53CAE1134C8F160071D5C2 /* MyMapApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMapApp-Prefix.pch"; sourceTree = "<group>"; };
+		BE53CAE2134C8F160071D5C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE53CAE4134C8F160071D5C2 /* MyMapAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMapAppAppDelegate.h; sourceTree = "<group>"; };
+		BE53CAE5134C8F160071D5C2 /* MyMapAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapAppAppDelegate.m; sourceTree = "<group>"; };
+		BE53CAE8134C8F160071D5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		BE53CAEA134C8F160071D5C2 /* MyMapAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMapAppViewController.h; sourceTree = "<group>"; };
+		BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapAppViewController.m; sourceTree = "<group>"; };
+		BE53CAEE134C8F160071D5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyMapAppViewController.xib; sourceTree = "<group>"; };
+		BE53CAF5134C8F160071D5C2 /* MyMapAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMapAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE53CAFD134C8F160071D5C2 /* MyMapAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyMapAppTests-Info.plist"; sourceTree = "<group>"; };
+		BE53CAFF134C8F160071D5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE53CB01134C8F160071D5C2 /* MyMapAppTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMapAppTests-Prefix.pch"; sourceTree = "<group>"; };
+		BE53CB02134C8F160071D5C2 /* MyMapAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMapAppTests.h; sourceTree = "<group>"; };
+		BE53CB04134C8F160071D5C2 /* MyMapAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapAppTests.m; sourceTree = "<group>"; };
+		BE53CB0E134C8F350071D5C2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BE53CB2B134CA2580071D5C2 /* WildcardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WildcardGestureRecognizer.h; sourceTree = "<group>"; };
+		BE53CB2C134CA2580071D5C2 /* WildcardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WildcardGestureRecognizer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE53CACE134C8F160071D5C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5048D9134CB2E300B77219 /* CoreLocation.framework in Frameworks */,
+				BE53CB0F134C8F350071D5C2 /* MapKit.framework in Frameworks */,
+				BE53CAD6134C8F160071D5C2 /* UIKit.framework in Frameworks */,
+				BE53CAD8134C8F160071D5C2 /* Foundation.framework in Frameworks */,
+				BE53CADA134C8F160071D5C2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE53CAF1134C8F160071D5C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE53CAF6134C8F160071D5C2 /* UIKit.framework in Frameworks */,
+				BE53CAF7134C8F160071D5C2 /* Foundation.framework in Frameworks */,
+				BE53CAF8134C8F160071D5C2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE53CAC6134C8F160071D5C2 = {
+			isa = PBXGroup;
+			children = (
+				BE5048D8134CB2E300B77219 /* CoreLocation.framework */,
+				BE53CB0E134C8F350071D5C2 /* MapKit.framework */,
+				BE53CADB134C8F160071D5C2 /* MyMapApp */,
+				BE53CAFB134C8F160071D5C2 /* MyMapAppTests */,
+				BE53CAD4134C8F160071D5C2 /* Frameworks */,
+				BE53CAD2134C8F160071D5C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE53CAD2134C8F160071D5C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE53CAD1134C8F160071D5C2 /* MyMapApp.app */,
+				BE53CAF5134C8F160071D5C2 /* MyMapAppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE53CAD4134C8F160071D5C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE53CAD5134C8F160071D5C2 /* UIKit.framework */,
+				BE53CAD7134C8F160071D5C2 /* Foundation.framework */,
+				BE53CAD9134C8F160071D5C2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE53CADB134C8F160071D5C2 /* MyMapApp */ = {
+			isa = PBXGroup;
+			children = (
+				BE53CB2B134CA2580071D5C2 /* WildcardGestureRecognizer.h */,
+				BE53CB2C134CA2580071D5C2 /* WildcardGestureRecognizer.m */,
+				BE53CAE4134C8F160071D5C2 /* MyMapAppAppDelegate.h */,
+				BE53CAE5134C8F160071D5C2 /* MyMapAppAppDelegate.m */,
+				BE53CAE7134C8F160071D5C2 /* MainWindow.xib */,
+				BE53CAEA134C8F160071D5C2 /* MyMapAppViewController.h */,
+				BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */,
+				BE53CAED134C8F160071D5C2 /* MyMapAppViewController.xib */,
+				BE53CADC134C8F160071D5C2 /* Supporting Files */,
+			);
+			path = MyMapApp;
+			sourceTree = "<group>";
+		};
+		BE53CADC134C8F160071D5C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE53CADD134C8F160071D5C2 /* MyMapApp-Info.plist */,
+				BE53CADE134C8F160071D5C2 /* InfoPlist.strings */,
+				BE53CAE1134C8F160071D5C2 /* MyMapApp-Prefix.pch */,
+				BE53CAE2134C8F160071D5C2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE53CAFB134C8F160071D5C2 /* MyMapAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE53CB02134C8F160071D5C2 /* MyMapAppTests.h */,
+				BE53CB04134C8F160071D5C2 /* MyMapAppTests.m */,
+				BE53CAFC134C8F160071D5C2 /* Supporting Files */,
+			);
+			path = MyMapAppTests;
+			sourceTree = "<group>";
+		};
+		BE53CAFC134C8F160071D5C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE53CAFD134C8F160071D5C2 /* MyMapAppTests-Info.plist */,
+				BE53CAFE134C8F160071D5C2 /* InfoPlist.strings */,
+				BE53CB01134C8F160071D5C2 /* MyMapAppTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE53CAD0134C8F160071D5C2 /* MyMapApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE53CB08134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "MyMapApp" */;
+			buildPhases = (
+				BE53CACD134C8F160071D5C2 /* Sources */,
+				BE53CACE134C8F160071D5C2 /* Frameworks */,
+				BE53CACF134C8F160071D5C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyMapApp;
+			productName = MyMapApp;
+			productReference = BE53CAD1134C8F160071D5C2 /* MyMapApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE53CAF4134C8F160071D5C2 /* MyMapAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE53CB0B134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "MyMapAppTests" */;
+			buildPhases = (
+				BE53CAF0134C8F160071D5C2 /* Sources */,
+				BE53CAF1134C8F160071D5C2 /* Frameworks */,
+				BE53CAF2134C8F160071D5C2 /* Resources */,
+				BE53CAF3134C8F160071D5C2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE53CAFA134C8F160071D5C2 /* PBXTargetDependency */,
+			);
+			name = MyMapAppTests;
+			productName = MyMapAppTests;
+			productReference = BE53CAF5134C8F160071D5C2 /* MyMapAppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE53CAC8134C8F160071D5C2 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = BE53CACB134C8F160071D5C2 /* Build configuration list for PBXProject "MyMapApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BE53CAC6134C8F160071D5C2;
+			productRefGroup = BE53CAD2134C8F160071D5C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE53CAD0134C8F160071D5C2 /* MyMapApp */,
+				BE53CAF4134C8F160071D5C2 /* MyMapAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE53CACF134C8F160071D5C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE53CAE0134C8F160071D5C2 /* InfoPlist.strings in Resources */,
+				BE53CAE9134C8F160071D5C2 /* MainWindow.xib in Resources */,
+				BE53CAEF134C8F160071D5C2 /* MyMapAppViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE53CAF2134C8F160071D5C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE53CB00134C8F160071D5C2 /* InfoPlist.strings in Resources */,
+				BE53CB03134C8F160071D5C2 /* MyMapAppTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE53CAF3134C8F160071D5C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE53CACD134C8F160071D5C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE53CAE3134C8F160071D5C2 /* main.m in Sources */,
+				BE53CAE6134C8F160071D5C2 /* MyMapAppAppDelegate.m in Sources */,
+				BE53CAEC134C8F160071D5C2 /* MyMapAppViewController.m in Sources */,
+				BE53CB2D134CA2580071D5C2 /* WildcardGestureRecognizer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE53CAF0134C8F160071D5C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE53CB05134C8F160071D5C2 /* MyMapAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE53CAFA134C8F160071D5C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE53CAD0134C8F160071D5C2 /* MyMapApp */;
+			targetProxy = BE53CAF9134C8F160071D5C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE53CADE134C8F160071D5C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE53CADF134C8F160071D5C2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BE53CAE7134C8F160071D5C2 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE53CAE8134C8F160071D5C2 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		BE53CAED134C8F160071D5C2 /* MyMapAppViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE53CAEE134C8F160071D5C2 /* en */,
+			);
+			name = MyMapAppViewController.xib;
+			sourceTree = "<group>";
+		};
+		BE53CAFE134C8F160071D5C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE53CAFF134C8F160071D5C2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE53CB06134C8F160071D5C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		BE53CB07134C8F160071D5C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		BE53CB09134C8F160071D5C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMapApp/MyMapApp-Prefix.pch";
+				INFOPLIST_FILE = "MyMapApp/MyMapApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BE53CB0A134C8F160071D5C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMapApp/MyMapApp-Prefix.pch";
+				INFOPLIST_FILE = "MyMapApp/MyMapApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BE53CB0C134C8F160071D5C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyMapApp.app/MyMapApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMapAppTests/MyMapAppTests-Prefix.pch";
+				INFOPLIST_FILE = "MyMapAppTests/MyMapAppTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		BE53CB0D134C8F160071D5C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyMapApp.app/MyMapApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyMapAppTests/MyMapAppTests-Prefix.pch";
+				INFOPLIST_FILE = "MyMapAppTests/MyMapAppTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE53CACB134C8F160071D5C2 /* Build configuration list for PBXProject "MyMapApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE53CB06134C8F160071D5C2 /* Debug */,
+				BE53CB07134C8F160071D5C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE53CB08134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "MyMapApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE53CB09134C8F160071D5C2 /* Debug */,
+				BE53CB0A134C8F160071D5C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE53CB0B134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "MyMapAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE53CB0C134C8F160071D5C2 /* Debug */,
+				BE53CB0D134C8F160071D5C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE53CAC8134C8F160071D5C2 /* Project object */;
+}
