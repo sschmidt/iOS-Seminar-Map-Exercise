@@ -37,7 +37,7 @@ int mCurrentQuestion = 0;
     CLLocationCoordinate2D locationq2;
     locationq2.latitude = 35.68853320738875;
     locationq2.longitude = 139.691162109375;
-    q2.question = @"Please Locate Tokio?";
+    q2.question = @"Please Locate Tokyo?";
     q2.answer = locationq2;
 
     //Ouagadougou (12.364637, -1.533864)

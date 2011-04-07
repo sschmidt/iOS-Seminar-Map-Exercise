@@ -37,6 +37,7 @@ enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 @property (nonatomic, retain) IBOutlet UILabel *questionLabel;
+@property (nonatomic, retain) IBOutlet UILabel *playerLabel;
 @property (nonatomic, retain) IBOutlet UIButton *nextButton;
 @property (nonatomic, retain) UILongPressGestureRecognizer *myPress;
 @property (nonatomic, retain) NSMutableArray *myquesitonarray;

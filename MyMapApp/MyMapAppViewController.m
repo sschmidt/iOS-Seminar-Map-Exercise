@@ -18,7 +18,7 @@
 
 
 @implementation MyMapAppViewController
-@synthesize myMapView, myquesitonarray, questionLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations; //changeMapType;
+@synthesize myMapView, myquesitonarray, questionLabel, playerLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations; //changeMapType;
 
 - (void)dealloc {
     self.myPress = nil;
@@ -41,8 +41,6 @@
 {
     [super viewDidLoad];
     [self initializeMap];
-    [self loadQuestions];
-    [self showFirstQuestion];
     
     self.questions = [[[LocationQuestionDatabase alloc] init] autorelease];
     
@@ -54,6 +52,9 @@
     self.currentAnnotations = [[NSMutableArray alloc] init];
     self.playerScores = malloc(playerCount * sizeof(int));
     self.guessedLocations = malloc(playerCount * sizeof(CLLocationCoordinate2D));
+    for(int i=0; i<playerCount; i++){
+        playerScores[i] = 0;
+    }
     
 }
 
@@ -77,29 +78,6 @@
     myPress.delegate = self;
     myMapView.mapType = MKMapTypeSatellite;
     myMapView.delegate = self;
-}
-
-- (void) loadQuestions
-{
-
-    LocationQuestion *q1 = [[LocationQuestion alloc]init];
-
-    CLLocationCoordinate2D location;
-    location.latitude = 48.262423;
-    location.longitude = 11.668972;
-
-    q1.question = @"Please push the Start Button";
-    q1.answer = location;
-    
-    myquesitonarray = [[NSMutableArray alloc] initWithObjects:q1, nil];
-    
-}
-
--(void) showFirstQuestion
-{
-
-    [questionLabel setText:[[myquesitonarray objectAtIndex:0] question]];  
-    self.currentQuestion = [myquesitonarray objectAtIndex:0];
 }
 
 
@@ -171,7 +149,12 @@
             guessedLocations[currentPlayer] = [myMapView convertPoint:point toCoordinateFromView: self.view];
         [nextButton setTitle:@"set Pin as answer" forState:UIControlStateNormal];
         [nextButton setEnabled:true];
+<<<<<<< HEAD
 
+=======
+        nextButton.alpha = 1.0;
+        currentGameState = PIN_SET;
+>>>>>>> 8f992c0432961d7f6723a76c99c236b82403f2e1
     }
 }
 
@@ -183,11 +166,21 @@
         currentQuestion = [questions getNextQuestion];
         NSLog(@"Next question: %@", currentQuestion.question);
         
+        MKCoordinateRegion overview = {{0.0f, 0.0f}, {0.0f, 180.0f}}; // set Latitude Delta to 180
+        [myMapView setRegion: overview animated: YES];
+        
+        currentPlayer = 0;
         [questionLabel setText:currentQuestion.question];
+<<<<<<< HEAD
 
         [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+=======
+        [playerLabel setText:[NSString stringWithFormat:@"Player %i's turn", currentPlayer+1]];
+        currentGameState = QUESTION_ASKED;
+>>>>>>> 8f992c0432961d7f6723a76c99c236b82403f2e1
         [nextButton setEnabled:false];
-        currentPlayer = 0;
+        [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+        nextButton.alpha = 0.5;
         NSLog(@"new state: asked");
         return;
     }
@@ -197,13 +190,22 @@
         return;
     }
     
+    // show whole world
+    
     if(currentGameState == PIN_SET) {
         
         if(currentPlayer < playerCount){
             currentPlayer++;
+            [playerLabel setText:[NSString stringWithFormat:@"Player %i's turn", currentPlayer+1]];
             NSLog(@"%i", currentPlayer);
-            [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
             [nextButton setEnabled:false];
+//            nextButton.currentTitle = @"Place Pin now";
+            [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+            nextButton.alpha = 0.5;
+
+            MKCoordinateRegion overview = {{0.0f, 0.0f}, {0.0f, 180.0f}}; // set Latitude Delta to 180
+            [myMapView setRegion: overview animated: YES];
+            
             currentGameState = QUESTION_ASKED;
 
             for(int i=0; i < currentAnnotations.count; i++) {
@@ -214,8 +216,12 @@
         }
         
         if(currentPlayer >= playerCount) {
+<<<<<<< HEAD
             currentGameState = SHOW_ANSWER;
             float shortestDistance = 99999999999999;
+=======
+            int shortestDistance = 2147483647;
+>>>>>>> 8f992c0432961d7f6723a76c99c236b82403f2e1
             int bestPlayer = 0;
             for(int i=0; i<playerCount; i++){
                 MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:[currentQuestion answer] :2];
@@ -227,11 +233,17 @@
                 }
             }
             
-            NSString *message = [NSString stringWithFormat:@"Player %i hat gewonnen! (%f km)", bestPlayer + 1, shortestDistance];
+            playerScores[bestPlayer]++;
+            NSString *message = [NSString stringWithFormat:@"Player %i won! (%i km)", bestPlayer + 1, shortestDistance];
             
+            MKCoordinateRegion overview = {[currentQuestion answer], {0.0f, 100.0f}}; // set Latitude Delta to 180
+            [myMapView setRegion: overview animated: YES];
+
+            
+            [nextButton setEnabled:true];
             [questionLabel setText: message];
             [nextButton setTitle:@"next Question" forState:UIControlStateNormal];
-            [nextButton setEnabled:true];
+            nextButton.alpha = 1.0;
             
             MapAnnotation *solution = [[MapAnnotation alloc] initWithCoordinateAndColor:currentQuestion.answer :2];
             [currentAnnotations addObject:solution];
@@ -243,6 +255,13 @@
 
 
             currentPlayer = 0;
+            [playerLabel setNumberOfLines:playerCount+1 ];
+            NSString *scoreString = @"Scores: \n";
+            for(int i=0; i<playerCount; i++){
+                scoreString = [scoreString stringByAppendingString: [NSString stringWithFormat:@"Player %i: %i wins\n", i+1, playerScores[i]]];
+            }
+            NSLog(scoreString);
+            [playerLabel setText:scoreString];
             NSLog(@"new state: answer");
         }
         
@@ -252,10 +271,13 @@
     if(currentGameState == SHOW_ANSWER){
         currentQuestion = [questions getNextQuestion];
         [questionLabel setText:currentQuestion.question];
-        [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
         [nextButton setEnabled:false];
+        [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+        nextButton.alpha = 0.5;
         
         currentPlayer = 0;
+        [playerLabel setText:[NSString stringWithFormat:@"Player %i's turn", currentPlayer+1]];
+
         currentGameState = QUESTION_ASKED;
         
         for(int i=0; i < currentAnnotations.count; i++) {
