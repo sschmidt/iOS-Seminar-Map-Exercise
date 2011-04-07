@@ -18,7 +18,10 @@
 
     return self;
 }
+
+
 - (CLLocationDistance) getDistanceFrom: (MapAnnotation*) comparedAnnotation {
+
     // compared location
     CLLocationCoordinate2D comparedCoordinate = [comparedAnnotation coordinate];
     CLLocation *comparedLocation = [[CLLocation alloc] initWithLatitude: comparedCoordinate.latitude longitude: comparedCoordinate.longitude];
@@ -27,7 +30,7 @@
     CLLocation *myLocation = [[CLLocation alloc] initWithLatitude: self.coordinate.latitude longitude: self.coordinate.longitude];
 
     // distance
-    CLLocationDistance distance = [myLocation getDistanceFrom:comparedLocation];
+    CLLocationDistance distance = [myLocation distanceFromLocation:comparedLocation];
     return distance;
 }
 

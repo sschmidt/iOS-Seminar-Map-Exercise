@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B548D1B134DA6F100A1740E /* LocationGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B548D1A134DA6F100A1740E /* LocationGetter.m */; };
 		5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B548D21134DB4EA00A1740E /* LocationQuestion.m */; };
 		BE5048D9134CB2E300B77219 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5048D8134CB2E300B77219 /* CoreLocation.framework */; };
 		BE53CAD6134C8F160071D5C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD5134C8F160071D5C2 /* UIKit.framework */; };
@@ -40,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B548D19134DA6F100A1740E /* LocationGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGetter.h; sourceTree = "<group>"; };
-		5B548D1A134DA6F100A1740E /* LocationGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationGetter.m; sourceTree = "<group>"; };
 		5B548D20134DB4EA00A1740E /* LocationQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationQuestion.h; path = MyMapApp.xcodeproj/LocationQuestion.h; sourceTree = SOURCE_ROOT; };
 		5B548D21134DB4EA00A1740E /* LocationQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationQuestion.m; path = MyMapApp.xcodeproj/LocationQuestion.m; sourceTree = SOURCE_ROOT; };
 		BE5048D8134CB2E300B77219 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -136,8 +133,6 @@
 				BE53CAEA134C8F160071D5C2 /* MyMapAppViewController.h */,
 				BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */,
 				BE53CAED134C8F160071D5C2 /* MyMapAppViewController.xib */,
-				5B548D19134DA6F100A1740E /* LocationGetter.h */,
-				5B548D1A134DA6F100A1740E /* LocationGetter.m */,
 				5B548D20134DB4EA00A1740E /* LocationQuestion.h */,
 				5B548D21134DB4EA00A1740E /* LocationQuestion.m */,
 				BE53CADC134C8F160071D5C2 /* Supporting Files */,
@@ -286,7 +281,6 @@
 				BE53CAE3134C8F160071D5C2 /* main.m in Sources */,
 				BE53CAE6134C8F160071D5C2 /* MyMapAppAppDelegate.m in Sources */,
 				BE53CAEC134C8F160071D5C2 /* MyMapAppViewController.m in Sources */,
-				5B548D1B134DA6F100A1740E /* LocationGetter.m in Sources */,
 				5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */,
 				BEF3AD24134DE6FF00AFC70C /* MapAnnotation.m in Sources */,
 			);

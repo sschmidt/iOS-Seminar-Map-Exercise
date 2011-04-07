@@ -10,8 +10,15 @@
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
+@interface MyMapAppViewController()
+    -(void) initializeMap;
+    -(void) loadQuestions;
+    -(void) showFirstQuestion;
+@end
+
+
 @implementation MyMapAppViewController
-@synthesize myMapView, mytap, myLocationGetter, lastKnownPhysicalLocation, myquesitonarray, questionLabel, currentQuestion; //changeMapType;
+@synthesize myMapView, mytap, myquesitonarray, questionLabel, currentQuestion; //changeMapType;
 
 - (void)dealloc {
     self.mytap = nil;
@@ -33,14 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showMap];
+    [self initializeMap];
     [self loadQuestions];
     [self showFirstQuestion];
-    
-    // get physical location
-    myLocationGetter = [[LocationGetter alloc] init];
-    myLocationGetter.delegate = self;
-    [myLocationGetter startUpdates];
     
 }
 
@@ -52,17 +54,15 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
+{    
     return YES;
 }
 
-- (IBAction) showMap
+- (void) initializeMap
 {
-    // (48.262423, 11.668972)
     self.mytap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
     [myMapView addGestureRecognizer:mytap];
-    NSLog(@"Show my map");
+
     mytap.delegate = self;
     myMapView.mapType = MKMapTypeHybrid;
 }
@@ -83,7 +83,7 @@
     
 }
 
--(IBAction) showFirstQuestion
+-(void) showFirstQuestion
 {
 
     [questionLabel setText:[[myquesitonarray objectAtIndex:0] question]];  
@@ -110,53 +110,6 @@
     [questionLabel setText: message];
 }
 
-
--(IBAction) showGarching
-{
-    CLLocationCoordinate2D location;
-    location.latitude = 48.262423;
-    location.longitude = 11.668972;
-    MKCoordinateSpan span;
-        span.latitudeDelta=0.2;
-	span.longitudeDelta=0.2;
-    
-    
-    MKCoordinateRegion region;
-    region.span = span;
-    region.center = location;
-    
-    [myMapView setRegion:region animated:true];
-    [myMapView regionThatFits:region];
-
-}
-//
-//- (IBAction) changeType:(id) sender{
-//    if(changeMapType.selectedSegmentIndex == 0){
-//        myMapView.mapType = MKMapTypeStandard;
-//    }
-//    else if (changeMapType.selectedSegmentIndex == 1){
-//        myMapView.mapType = MKMapTypeSatellite;
-//    }
-//    else if (changeMapType.selectedSegmentIndex == 2){
-//        myMapView.mapType = MKMapTypeHybrid;
-//    }
-//
-//}
-
-- (void)newPhysicalLocation:(CLLocation *) location{
-    // test the age of the location, because the device automatically caches locations
-    NSTimeInterval locationAge = -[location.timestamp timeIntervalSinceNow];
-    if (locationAge > 2.0){
-        NSLog(@"alt: %f", locationAge);
-    }
-    else{
-        NSLog(@"Setting new Location. locationAge %f", locationAge);
-        self.lastKnownPhysicalLocation = location;
-        
-        //if a valid update is received, stop the updates
-        [[myLocationGetter locationManager] stopUpdatingLocation];
-    }
-}
 
 
 @end
