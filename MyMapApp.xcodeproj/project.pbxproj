@@ -25,6 +25,7 @@
 		BE53CB03134C8F160071D5C2 /* MyMapAppTests.h in Resources */ = {isa = PBXBuildFile; fileRef = BE53CB02134C8F160071D5C2 /* MyMapAppTests.h */; };
 		BE53CB05134C8F160071D5C2 /* MyMapAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53CB04134C8F160071D5C2 /* MyMapAppTests.m */; };
 		BE53CB0F134C8F350071D5C2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CB0E134C8F350071D5C2 /* MapKit.framework */; };
+		BEB56BF2134DFDB900312084 /* LocationQuestionDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB56BF1134DFDB900312084 /* LocationQuestionDatabase.m */; };
 		BEF3AD24134DE6FF00AFC70C /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF3AD23134DE6FF00AFC70C /* MapAnnotation.m */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		BE53CB02134C8F160071D5C2 /* MyMapAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMapAppTests.h; sourceTree = "<group>"; };
 		BE53CB04134C8F160071D5C2 /* MyMapAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapAppTests.m; sourceTree = "<group>"; };
 		BE53CB0E134C8F350071D5C2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BEB56BF0134DFDB900312084 /* LocationQuestionDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationQuestionDatabase.h; sourceTree = "<group>"; };
+		BEB56BF1134DFDB900312084 /* LocationQuestionDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationQuestionDatabase.m; sourceTree = "<group>"; };
 		BEF3AD22134DE6FF00AFC70C /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		BEF3AD23134DE6FF00AFC70C /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +141,8 @@
 				BE53CADC134C8F160071D5C2 /* Supporting Files */,
 				BEF3AD22134DE6FF00AFC70C /* MapAnnotation.h */,
 				BEF3AD23134DE6FF00AFC70C /* MapAnnotation.m */,
+				BEB56BF0134DFDB900312084 /* LocationQuestionDatabase.h */,
+				BEB56BF1134DFDB900312084 /* LocationQuestionDatabase.m */,
 			);
 			path = MyMapApp;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				BE53CAEC134C8F160071D5C2 /* MyMapAppViewController.m in Sources */,
 				5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */,
 				BEF3AD24134DE6FF00AFC70C /* MapAnnotation.m in Sources */,
+				BEB56BF2134DFDB900312084 /* LocationQuestionDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
