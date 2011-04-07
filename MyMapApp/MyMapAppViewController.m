@@ -12,13 +12,11 @@
 
 @interface MyMapAppViewController()
     -(void) initializeMap;
-    -(void) loadQuestions;
-    -(void) showFirstQuestion;
 @end
 
 
 @implementation MyMapAppViewController
-@synthesize myMapView, myquesitonarray, questionLabel, playerLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations; //changeMapType;
+@synthesize myMapView, myquesitonarray, questionLabel, playerLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations;
 
 - (void)dealloc {
     self.myPress = nil;
@@ -125,7 +123,7 @@
     -(void) handleTap:(UITapGestureRecognizer *)recognizer
     {
         if(currentGameState == QUESTION_ASKED){
-            currentGameState = PIN_SET; 
+           
             CGPoint point = [recognizer locationInView: self.view];
             CLLocationCoordinate2D coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
             
@@ -143,18 +141,16 @@
             {
             guessedPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:coordinate :2];
             }
+
             [myMapView addAnnotation: guessedPosition];
             [currentAnnotations addObject:guessedPosition];
             
             guessedLocations[currentPlayer] = [myMapView convertPoint:point toCoordinateFromView: self.view];
         [nextButton setTitle:@"set Pin as answer" forState:UIControlStateNormal];
         [nextButton setEnabled:true];
-<<<<<<< HEAD
-
-=======
         nextButton.alpha = 1.0;
         currentGameState = PIN_SET;
->>>>>>> 8f992c0432961d7f6723a76c99c236b82403f2e1
+
     }
 }
 
@@ -162,7 +158,7 @@
     NSLog(@"nextButton pressed!");
     
     if(currentGameState == START) {
-        currentGameState = QUESTION_ASKED;
+
         currentQuestion = [questions getNextQuestion];
         NSLog(@"Next question: %@", currentQuestion.question);
         
@@ -171,13 +167,9 @@
         
         currentPlayer = 0;
         [questionLabel setText:currentQuestion.question];
-<<<<<<< HEAD
-
-        [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
-=======
         [playerLabel setText:[NSString stringWithFormat:@"Player %i's turn", currentPlayer+1]];
         currentGameState = QUESTION_ASKED;
->>>>>>> 8f992c0432961d7f6723a76c99c236b82403f2e1
+
         [nextButton setEnabled:false];
         [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
         nextButton.alpha = 0.5;
@@ -216,12 +208,8 @@
         }
         
         if(currentPlayer >= playerCount) {
-<<<<<<< HEAD
-            currentGameState = SHOW_ANSWER;
-            float shortestDistance = 99999999999999;
-=======
             int shortestDistance = 2147483647;
->>>>>>> 8f992c0432961d7f6723a76c99c236b82403f2e1
+
             int bestPlayer = 0;
             for(int i=0; i<playerCount; i++){
                 MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:[currentQuestion answer] :2];
@@ -260,9 +248,10 @@
             for(int i=0; i<playerCount; i++){
                 scoreString = [scoreString stringByAppendingString: [NSString stringWithFormat:@"Player %i: %i wins\n", i+1, playerScores[i]]];
             }
-            NSLog(scoreString);
+
             [playerLabel setText:scoreString];
             NSLog(@"new state: answer");
+            currentGameState = SHOW_ANSWER;
         }
         
         return;
