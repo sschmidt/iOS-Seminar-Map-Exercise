@@ -18,10 +18,10 @@
 
 
 @implementation MyMapAppViewController
-@synthesize myMapView, mytap, myquesitonarray, questionLabel, currentQuestion; //changeMapType;
+@synthesize myMapView, myquesitonarray, questionLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions; //changeMapType;
 
 - (void)dealloc {
-    self.mytap = nil;
+    self.myPress = nil;
     [super dealloc];
 }
 
@@ -43,6 +43,13 @@
     [self initializeMap];
     [self loadQuestions];
     [self showFirstQuestion];
+    [questions initialiseQuestionDatabase];
+    
+    currentGameState = START;
+    
+    self.playerCount = 2;
+    self.playerScores = malloc(playerCount * sizeof(int));
+    self.guessedLocations = malloc(playerCount * sizeof(CLLocationCoordinate2D));
     
 }
 
@@ -60,11 +67,12 @@
 
 - (void) initializeMap
 {
-    self.mytap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
-    [myMapView addGestureRecognizer:mytap];
+//    self.mytap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+    self.myPress = [[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+    [myMapView addGestureRecognizer:myPress];
 
-    mytap.delegate = self;
-    myMapView.mapType = MKMapTypeHybrid;
+    myPress.delegate = self;
+    myMapView.mapType = MKMapTypeSatellite;
 }
 
 - (void) loadQuestions
@@ -93,21 +101,81 @@
 
 -(void) handleTap:(UITapGestureRecognizer *)recognizer
 {
-    CGPoint point = [recognizer locationInView: self.view];
-    CLLocationCoordinate2D coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
-    
-    MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: coordinate];
-    [myMapView addAnnotation: guessedPosition];
+    if(currentGameState == QUESTION_ASKED){
 
-    MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinate: [currentQuestion answer]];
+        CGPoint point = [recognizer locationInView: self.view];
+        CLLocationCoordinate2D coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
     
-    [myMapView addAnnotation: guessedPosition];
-    [myMapView addAnnotation: correctPosition];
-    
-    CLLocationDistance distance = [guessedPosition getDistanceFrom: correctPosition] / 1000;
-    NSString *message = [NSString stringWithFormat:@"Du lagst %f km daneben!", distance];
+        MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: coordinate];
+        [myMapView addAnnotation: guessedPosition];
 
-    [questionLabel setText: message];
+        
+        [myMapView addAnnotation: guessedPosition];
+//    [myMapView addAnnotation: correctPosition];
+    
+
+        [questionLabel setText: message];
+    
+        guessedLocations[currentPlayer] = [myMapView convertPoint:point toCoordinateFromView: self.view];
+        [nextButton setTitle:@"set Pin as answer"];
+        [nextButton setEnabled:true]
+        currentGameState == PIN_SET;
+    }
+}
+
+- (IBAction)nextButtonPressed:(id)sender{
+    NSLog(@"nextButton pressed!");
+    if(currentGameState == START){
+        currentQuestion = [questions getNextQuestion];
+        [questionLabel setText:currentQuestion.question];
+        currentGameState = QUESTION_ASKED;
+        [nextButton setTitle:@"Place Pin now"];
+        [nextButton setEnabled:false]
+        currentPlayer = 0;
+        NSLog(@"new state: asked");
+    }
+    if(currentGameState == QUESTION_ASKED){
+        NSLog(@"staying in state: asked");
+    }
+    if(currentGameState == PIN_SET){
+        
+        if(currentPlayer < playerCount){
+            playerCount++;
+            [nextButton setTitle:@"Place Pin now"];
+            [nextButton setEnabled:false]
+            currentGameState == QUESTION_ASKED;
+            NSLog(@"new state: asked");
+        }
+        
+        if(currentPlayer >= playerCount){
+            float shortestDistance = 99999999999999;
+            int bestPlayer = 0;
+            
+            for(int i=0; i<playerCount; i++){
+                MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinate: [currentQuestion answer]];
+                MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: guessedLocations[i]];
+                CLLocationDistance distance = [guessedPosition getDistanceFrom: correctPosition] / 1000;
+                if(distance < shortestDistance){
+                    shortestDistance = distance;
+                    bestPlayer = i;
+                }
+            }
+            NSString *message = [NSString stringWithFormat:@"Player %i, du lagst %f km daneben!", i, distance];
+            [questionLabel setText: message];
+            [nextButton setTitle:@"next Question"];
+            currentGameState = SHOW_ANSWER;
+            NSLog(@"new state: answer");
+        }
+    }
+    if(currentGameState == SHOW_ANSWER){
+        currentQuestion = [questions getNextQuestion];
+        [questionLabel setText:currentQuestion.question];
+        [nextButton setTitle:@"Place Pin now"];
+        [nextButton setEnabled:false]
+        currentPlayer = 0;
+        currentGameState = QUESTION_ASKED;
+        NSLog(@"new state: asked");
+    }
 }
 
 
