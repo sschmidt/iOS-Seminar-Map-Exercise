@@ -52,6 +52,9 @@
     self.currentAnnotations = [[NSMutableArray alloc] init];
     self.playerScores = malloc(playerCount * sizeof(int));
     self.guessedLocations = malloc(playerCount * sizeof(CLLocationCoordinate2D));
+    for(int i=0; i<playerCount; i++){
+        playerScores[i] = 0;
+    }
     
 }
 
@@ -161,6 +164,7 @@
                 }
             }
             
+            playerScores[bestPlayer]++;
             NSString *message = [NSString stringWithFormat:@"Player %i won! (%i km)", bestPlayer + 1, shortestDistance];
             
             MKCoordinateRegion overview = {[currentQuestion answer], {0.0f, 100.0f}}; // set Latitude Delta to 180
@@ -182,7 +186,13 @@
 
             currentGameState = SHOW_ANSWER;
             currentPlayer = 0;
-            [playerLabel setText:@""];
+            [playerLabel setNumberOfLines:playerCount+1 ];
+            NSString *scoreString = @"Scores: \n";
+            for(int i=0; i<playerCount; i++){
+                scoreString = [scoreString stringByAppendingString: [NSString stringWithFormat:@"Player %i: %i wins\n", i+1, playerScores[i]]];
+            }
+            NSLog(scoreString);
+            [playerLabel setText:scoreString];
             NSLog(@"new state: answer");
         }
         
