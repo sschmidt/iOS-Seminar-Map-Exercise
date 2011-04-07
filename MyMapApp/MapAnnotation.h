@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 
-@interface MapAnnotation : NSObject {
-    
+@interface MapAnnotation : NSObject <MKAnnotation> {
+    CLLocationCoordinate2D coordinate;
 }
+
+- (MapAnnotation*) initWithCoordinate: (CLLocationCoordinate2D) annotationCoordinate;
+- (CLLocationDistance) getDistanceFrom: (MapAnnotation*) comparedAnnotation;
+
+@property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
 
 @end

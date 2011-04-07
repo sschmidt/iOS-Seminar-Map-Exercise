@@ -8,11 +8,10 @@
 
 #import "MyMapAppViewController.h"
 #import <CoreLocation/CoreLocation.h>
-#import "WildcardGestureRecognizer.h"
 #import <UIKit/UIKit.h>
 
 @implementation MyMapAppViewController
-@synthesize myMapView, mytap, coordinate, changeMapType, myLocationGetter, lastKnownPhysicalLocation;
+@synthesize myMapView, mytap, myLocationGetter, lastKnownPhysicalLocation, myquesitonarray, questionLabel, currentQuestion; //changeMapType;
 
 - (void)dealloc {
     self.mytap = nil;
@@ -35,6 +34,8 @@
 {
     [super viewDidLoad];
     [self showMap];
+    [self loadQuestions];
+    [self showFirstQuestion];
     
     // get physical location
     myLocationGetter = [[LocationGetter alloc] init];
@@ -58,31 +59,55 @@
 
 - (IBAction) showMap
 {
-   
-    
     // (48.262423, 11.668972)
     self.mytap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
     [myMapView addGestureRecognizer:mytap];
     NSLog(@"Show my map");
     mytap.delegate = self;
+    myMapView.mapType = MKMapTypeHybrid;
+}
+
+- (void) loadQuestions
+{
+
+    LocationQuestion *q1 = [[LocationQuestion alloc]init];
+
+    CLLocationCoordinate2D location;
+    location.latitude = 48.262423;
+    location.longitude = 11.668972;
+
+    q1.question = @"Wo ist Garching";
+    q1.answer = location;
+    
+    myquesitonarray = [[NSMutableArray alloc] initWithObjects:q1, nil];
     
 }
+
+-(IBAction) showFirstQuestion
+{
+
+    [questionLabel setText:[[myquesitonarray objectAtIndex:0] question]];  
+    self.currentQuestion = [myquesitonarray objectAtIndex:0];
+}
+
 
 -(void) handleTap:(UITapGestureRecognizer *)recognizer
 {
     CGPoint point = [recognizer locationInView: self.view];
+    CLLocationCoordinate2D coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
+    
+    MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: coordinate];
+    [myMapView addAnnotation: guessedPosition];
 
-    NSLog(@"x= %f",point.x);
-    NSLog(@"y= %f",point.y);
-    self.coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
+    MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinate: [currentQuestion answer]];
     
-    NSLog(@"x coord= %f",self.coordinate.latitude);
-    NSLog(@"y coord= %f",self.coordinate.longitude);
+    [myMapView addAnnotation: guessedPosition];
+    [myMapView addAnnotation: correctPosition];
+    
+    CLLocationDistance distance = [guessedPosition getDistanceFrom: correctPosition] / 1000;
+    NSString *message = [NSString stringWithFormat:@"Du lagst %f km daneben!", distance];
 
-    
-    [myMapView addAnnotation:self];
-    
-    
+    [questionLabel setText: message];
 }
 
 
@@ -92,9 +117,7 @@
     location.latitude = 48.262423;
     location.longitude = 11.668972;
     MKCoordinateSpan span;
-    
-    self.coordinate = location;
-    span.latitudeDelta=0.2;
+        span.latitudeDelta=0.2;
 	span.longitudeDelta=0.2;
     
     
@@ -104,23 +127,21 @@
     
     [myMapView setRegion:region animated:true];
     [myMapView regionThatFits:region];
-    [myMapView addAnnotation:self];
-
-    
-}
-
-- (IBAction) changeType:(id) sender{
-    if(changeMapType.selectedSegmentIndex == 0){
-        myMapView.mapType = MKMapTypeStandard;
-    }
-    else if (changeMapType.selectedSegmentIndex == 1){
-        myMapView.mapType = MKMapTypeSatellite;
-    }
-    else if (changeMapType.selectedSegmentIndex == 2){
-        myMapView.mapType = MKMapTypeHybrid;
-    }
 
 }
+//
+//- (IBAction) changeType:(id) sender{
+//    if(changeMapType.selectedSegmentIndex == 0){
+//        myMapView.mapType = MKMapTypeStandard;
+//    }
+//    else if (changeMapType.selectedSegmentIndex == 1){
+//        myMapView.mapType = MKMapTypeSatellite;
+//    }
+//    else if (changeMapType.selectedSegmentIndex == 2){
+//        myMapView.mapType = MKMapTypeHybrid;
+//    }
+//
+//}
 
 - (void)newPhysicalLocation:(CLLocation *) location{
     // test the age of the location, because the device automatically caches locations
@@ -136,7 +157,6 @@
         [[myLocationGetter locationManager] stopUpdatingLocation];
     }
 }
-
 
 
 @end
