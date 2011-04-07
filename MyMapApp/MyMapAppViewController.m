@@ -76,6 +76,7 @@
 
     myPress.delegate = self;
     myMapView.mapType = MKMapTypeSatellite;
+    myMapView.delegate = self;
 }
 
 - (void) loadQuestions
@@ -102,22 +103,75 @@
 }
 
 
--(void) handleTap:(UITapGestureRecognizer *)recognizer
-{
-    if(currentGameState == QUESTION_ASKED){
+- (MKAnnotationView *) mapView:(MKMapView *) mapView viewForAnnotation:(id<MKAnnotation>) annotation {
+    NSLog(@"new pin detected");
+    {
 
-        CGPoint point = [recognizer locationInView: self.view];
-        CLLocationCoordinate2D coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
-    
-        MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: coordinate];
-        [myMapView addAnnotation: guessedPosition];
+        MKPinAnnotationView	*importantView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier :	@"importantView" ] ; 
+        if (importantView == nil) {
+            importantView	=	[[[MKPinAnnotationView alloc] initWithAnnotation : annotation	reuseIdentifier :@"importantView" ]	autorelease ] ;
+            importantView.animatesDrop = YES;
+            importantView.draggable = YES;
+
+        }
+
+        MapAnnotation *test = (MapAnnotation*) annotation;
+        int color = test.color;
+        NSLog(@"color %i",color);
+        if (color == 0)
+        {
+            importantView.pinColor = MKPinAnnotationColorRed;
+        }
+        if (color == 1)
+        {
+            importantView.pinColor = MKPinAnnotationColorPurple;
+        }
+        if (color == 2)
+        {
+            importantView.pinColor = MKPinAnnotationColorGreen;
+        }
         
-        [currentAnnotations addObject:guessedPosition];
+    importantView.annotation = annotation; 
+    importantView.canShowCallout = NO;
+    return importantView;  
+    } 
+    return nil ;
+    }
     
-        guessedLocations[currentPlayer] = [myMapView convertPoint:point toCoordinateFromView: self.view];
+    
+    
+    
+    
+    
+    
+    -(void) handleTap:(UITapGestureRecognizer *)recognizer
+    {
+        if(currentGameState == QUESTION_ASKED){
+            currentGameState = PIN_SET; 
+            CGPoint point = [recognizer locationInView: self.view];
+            CLLocationCoordinate2D coordinate = [myMapView convertPoint:point toCoordinateFromView: self.view];
+            
+            MapAnnotation *guessedPosition = nil;
+            
+            if (currentPlayer == 0)
+            {
+            guessedPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:coordinate :0];
+            }    
+            else if (currentPlayer == 1)
+            {
+            guessedPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:coordinate :1];
+            }    
+            else
+            {
+            guessedPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:coordinate :2];
+            }
+            [myMapView addAnnotation: guessedPosition];
+            [currentAnnotations addObject:guessedPosition];
+            
+            guessedLocations[currentPlayer] = [myMapView convertPoint:point toCoordinateFromView: self.view];
         [nextButton setTitle:@"set Pin as answer" forState:UIControlStateNormal];
         [nextButton setEnabled:true];
-        currentGameState = PIN_SET;
+
     }
 }
 
@@ -125,11 +179,12 @@
     NSLog(@"nextButton pressed!");
     
     if(currentGameState == START) {
+        currentGameState = QUESTION_ASKED;
         currentQuestion = [questions getNextQuestion];
         NSLog(@"Next question: %@", currentQuestion.question);
         
         [questionLabel setText:currentQuestion.question];
-        currentGameState = QUESTION_ASKED;
+
         [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
         [nextButton setEnabled:false];
         currentPlayer = 0;
@@ -159,11 +214,12 @@
         }
         
         if(currentPlayer >= playerCount) {
+            currentGameState = SHOW_ANSWER;
             float shortestDistance = 99999999999999;
             int bestPlayer = 0;
             for(int i=0; i<playerCount; i++){
-                MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinate: [currentQuestion answer]];
-                MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: guessedLocations[i]];
+                MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:[currentQuestion answer] :2];
+                MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinateAndColor:guessedLocations[i] :2 ];
                 CLLocationDistance distance = [guessedPosition getDistanceFrom: correctPosition] / 1000;
                 if(distance < shortestDistance){
                     shortestDistance = distance;
@@ -177,7 +233,7 @@
             [nextButton setTitle:@"next Question" forState:UIControlStateNormal];
             [nextButton setEnabled:true];
             
-            MapAnnotation *solution = [[MapAnnotation alloc] initWithCoordinate: currentQuestion.answer];
+            MapAnnotation *solution = [[MapAnnotation alloc] initWithCoordinateAndColor:currentQuestion.answer :2];
             [currentAnnotations addObject:solution];
             [myMapView addAnnotation:solution];
             
@@ -185,7 +241,7 @@
                 [myMapView addAnnotation: [currentAnnotations objectAtIndex:i]];
             }
 
-            currentGameState = SHOW_ANSWER;
+
             currentPlayer = 0;
             NSLog(@"new state: answer");
         }

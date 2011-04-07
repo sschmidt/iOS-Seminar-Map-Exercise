@@ -11,11 +11,11 @@
 
 @implementation MapAnnotation
 
-@synthesize coordinate;
+@synthesize coordinate, color;
 
--(MapAnnotation*)initWithCoordinate:(CLLocationCoordinate2D)annotationCoordinate {
+-(MapAnnotation*)initWithCoordinateAndColor:(CLLocationCoordinate2D)annotationCoordinate:(int)annotationColor {
     self.coordinate = annotationCoordinate;
-
+    self.color = annotationColor;
     return self;
 }
 

@@ -19,7 +19,6 @@ enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
 @interface MyMapAppViewController : UIViewController <MKMapViewDelegate, UIGestureRecognizerDelegate> {
 
     
-    
     MKMapView *myMapView;
     UILongPressGestureRecognizer *myPress;
     NSMutableArray *myquesitonarray;

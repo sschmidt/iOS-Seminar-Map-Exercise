@@ -55,7 +55,7 @@
 		BE53CAE5134C8F160071D5C2 /* MyMapAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapAppAppDelegate.m; sourceTree = "<group>"; };
 		BE53CAE8134C8F160071D5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		BE53CAEA134C8F160071D5C2 /* MyMapAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMapAppViewController.h; sourceTree = "<group>"; };
-		BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapAppViewController.m; sourceTree = "<group>"; };
+		BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMapAppViewController.m; sourceTree = "<group>"; };
 		BE53CAEE134C8F160071D5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyMapAppViewController.xib; sourceTree = "<group>"; };
 		BE53CAF5134C8F160071D5C2 /* MyMapAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMapAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE53CAFD134C8F160071D5C2 /* MyMapAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyMapAppTests-Info.plist"; sourceTree = "<group>"; };
@@ -99,8 +99,6 @@
 		BE53CAC6134C8F160071D5C2 = {
 			isa = PBXGroup;
 			children = (
-				BE5048D8134CB2E300B77219 /* CoreLocation.framework */,
-				BE53CB0E134C8F350071D5C2 /* MapKit.framework */,
 				BE53CADB134C8F160071D5C2 /* MyMapApp */,
 				BE53CAFB134C8F160071D5C2 /* MyMapAppTests */,
 				BE53CAD4134C8F160071D5C2 /* Frameworks */,
@@ -120,6 +118,8 @@
 		BE53CAD4134C8F160071D5C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE5048D8134CB2E300B77219 /* CoreLocation.framework */,
+				BE53CB0E134C8F350071D5C2 /* MapKit.framework */,
 				BE53CAD5134C8F160071D5C2 /* UIKit.framework */,
 				BE53CAD7134C8F160071D5C2 /* Foundation.framework */,
 				BE53CAD9134C8F160071D5C2 /* CoreGraphics.framework */,

@@ -12,11 +12,13 @@
 
 @interface MapAnnotation : NSObject <MKAnnotation> {
     CLLocationCoordinate2D coordinate;
+    int color;
 }
 
-- (MapAnnotation*) initWithCoordinate: (CLLocationCoordinate2D) annotationCoordinate;
+- (MapAnnotation*) initWithCoordinateAndColor: (CLLocationCoordinate2D) annotationCoordinate: (int) color;
 - (CLLocationDistance) getDistanceFrom: (MapAnnotation*) comparedAnnotation;
 
 @property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
+@property (nonatomic, assign) int color;
 
 @end
