@@ -10,5 +10,6 @@
 
 
 @implementation LocationQuestion
+@synthesize question, answer;
 
 @end

@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 @implementation MyMapAppViewController
-@synthesize myMapView, mytap, coordinate;
+@synthesize myMapView, mytap, coordinate, changeMapType, myLocationGetter, lastKnownPhysicalLocation;
 
 - (void)dealloc {
     self.mytap = nil;
@@ -35,6 +35,12 @@
 {
     [super viewDidLoad];
     [self showMap];
+    
+    // get physical location
+    myLocationGetter = [[LocationGetter alloc] init];
+    myLocationGetter.delegate = self;
+    [myLocationGetter startUpdates];
+    
 }
 
 - (void)viewDidUnload
@@ -101,6 +107,34 @@
     [myMapView addAnnotation:self];
 
     
+}
+
+- (IBAction) changeType:(id) sender{
+    if(changeMapType.selectedSegmentIndex == 0){
+        myMapView.mapType = MKMapTypeStandard;
+    }
+    else if (changeMapType.selectedSegmentIndex == 1){
+        myMapView.mapType = MKMapTypeSatellite;
+    }
+    else if (changeMapType.selectedSegmentIndex == 2){
+        myMapView.mapType = MKMapTypeHybrid;
+    }
+
+}
+
+- (void)newPhysicalLocation:(CLLocation *) location{
+    // test the age of the location, because the device automatically caches locations
+    NSTimeInterval locationAge = -[location.timestamp timeIntervalSinceNow];
+    if (locationAge > 2.0){
+        NSLog(@"alt: %f", locationAge);
+    }
+    else{
+        NSLog(@"Setting new Location. locationAge %f", locationAge);
+        self.lastKnownPhysicalLocation = location;
+        
+        //if a valid update is received, stop the updates
+        [[myLocationGetter locationManager] stopUpdatingLocation];
+    }
 }
 
 
