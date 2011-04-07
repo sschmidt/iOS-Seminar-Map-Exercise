@@ -49,6 +49,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, -6}, {768, 1010}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="229327710"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -85,10 +86,10 @@
 						<float key="IBUIMinimumFontSize">32</float>
 						<int key="IBUITextAlignment">1</int>
 					</object>
-					<object class="IBUIButton" id="774627926">
+					<object class="IBUIButton" id="72241182">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{346, 947}, {72, 37}}</string>
+						<string key="NSFrame">{{608, 942}, {140, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -101,7 +102,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Test</string>
+						<string key="IBUINormalTitle">Start</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -118,6 +119,7 @@
 				</object>
 				<string key="NSFrameSize">{768, 1004}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="745519018"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -173,12 +175,20 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">myButtonClick</string>
-						<reference key="source" ref="774627926"/>
+						<string key="label">nextButtonPressed:</string>
+						<reference key="source" ref="72241182"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">16</int>
+					<int key="connectionID">18</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nextButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="72241182"/>
+					</object>
+					<int key="connectionID">19</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -208,7 +218,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="745519018"/>
 							<reference ref="229327710"/>
-							<reference ref="774627926"/>
+							<reference ref="72241182"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -228,8 +238,8 @@
 						<reference key="parent" ref="766721923"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="774627926"/>
+						<int key="objectID">17</int>
+						<reference key="object" ref="72241182"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>
@@ -241,7 +251,7 @@
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
 					<string>12.IBPluginDependency</string>
-					<string>15.IBPluginDependency</string>
+					<string>17.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
@@ -271,7 +281,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">16</int>
+			<int key="maxID">19</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -279,27 +289,18 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MyMapAppViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">myButtonClick</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">myButtonClick</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">myButtonClick</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>myMapView</string>
+							<string>nextButton</string>
 							<string>questionLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>MKMapView</string>
+							<string>UIButton</string>
 							<string>UILabel</string>
 						</object>
 					</object>
@@ -308,6 +309,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>myMapView</string>
+							<string>nextButton</string>
 							<string>questionLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -315,6 +317,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">myMapView</string>
 								<string key="candidateClassName">MKMapView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nextButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">questionLabel</string>
@@ -329,7 +335,6 @@
 				</object>
 			</object>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">

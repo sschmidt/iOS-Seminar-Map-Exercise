@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationQuestion.h"
 #import "MapAnnotation.h"
-#import "LocationQuestionDatabase"
+#import "LocationQuestionDatabase.h"
 
 enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
 
@@ -32,6 +32,7 @@ enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
     CLLocationCoordinate2D *guessedLocations; //array
     enum currentGameStateEnum currentGameState;
     LocationQuestionDatabase *questions;
+    NSMutableArray *currentAnnotations;
    
 }
 
@@ -47,6 +48,6 @@ enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
 @property (nonatomic, readwrite) CLLocationCoordinate2D *guessedLocations;
 @property (nonatomic, assign) enum currentGameStateEnum currentGameState;
 @property (nonatomic, retain) LocationQuestionDatabase *questions;
-
+@property (nonatomic, retain) NSMutableArray *currentAnnotations;
 
 @end

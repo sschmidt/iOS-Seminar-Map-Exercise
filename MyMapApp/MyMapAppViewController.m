@@ -18,7 +18,7 @@
 
 
 @implementation MyMapAppViewController
-@synthesize myMapView, myquesitonarray, questionLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions; //changeMapType;
+@synthesize myMapView, myquesitonarray, questionLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations; //changeMapType;
 
 - (void)dealloc {
     self.myPress = nil;
@@ -43,11 +43,15 @@
     [self initializeMap];
     [self loadQuestions];
     [self showFirstQuestion];
+    
+    self.questions = [[[LocationQuestionDatabase alloc] init] autorelease];
+    
     [questions initialiseQuestionDatabase];
     
     currentGameState = START;
     
     self.playerCount = 2;
+    self.currentAnnotations = [[NSMutableArray alloc] init];
     self.playerScores = malloc(playerCount * sizeof(int));
     self.guessedLocations = malloc(playerCount * sizeof(CLLocationCoordinate2D));
     
@@ -67,7 +71,6 @@
 
 - (void) initializeMap
 {
-//    self.mytap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
     self.myPress = [[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
     [myMapView addGestureRecognizer:myPress];
 
@@ -84,7 +87,7 @@
     location.latitude = 48.262423;
     location.longitude = 11.668972;
 
-    q1.question = @"Wo ist Garching";
+    q1.question = @"Please push the Start Button";
     q1.answer = location;
     
     myquesitonarray = [[NSMutableArray alloc] initWithObjects:q1, nil];
@@ -108,49 +111,56 @@
     
         MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: coordinate];
         [myMapView addAnnotation: guessedPosition];
-
         
-        [myMapView addAnnotation: guessedPosition];
-//    [myMapView addAnnotation: correctPosition];
-    
-
-        [questionLabel setText: message];
+        [currentAnnotations addObject:guessedPosition];
     
         guessedLocations[currentPlayer] = [myMapView convertPoint:point toCoordinateFromView: self.view];
-        [nextButton setTitle:@"set Pin as answer"];
-        [nextButton setEnabled:true]
-        currentGameState == PIN_SET;
+        [nextButton setTitle:@"set Pin as answer" forState:UIControlStateNormal];
+        [nextButton setEnabled:true];
+        currentGameState = PIN_SET;
     }
 }
 
 - (IBAction)nextButtonPressed:(id)sender{
     NSLog(@"nextButton pressed!");
-    if(currentGameState == START){
+    
+    if(currentGameState == START) {
         currentQuestion = [questions getNextQuestion];
+        NSLog(@"Next question: %@", currentQuestion.question);
+        
         [questionLabel setText:currentQuestion.question];
         currentGameState = QUESTION_ASKED;
-        [nextButton setTitle:@"Place Pin now"];
-        [nextButton setEnabled:false]
+        [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+        [nextButton setEnabled:false];
         currentPlayer = 0;
         NSLog(@"new state: asked");
+        return;
     }
-    if(currentGameState == QUESTION_ASKED){
+    
+    if(currentGameState == QUESTION_ASKED) {
         NSLog(@"staying in state: asked");
+        return;
     }
-    if(currentGameState == PIN_SET){
+    
+    if(currentGameState == PIN_SET) {
         
         if(currentPlayer < playerCount){
-            playerCount++;
-            [nextButton setTitle:@"Place Pin now"];
-            [nextButton setEnabled:false]
-            currentGameState == QUESTION_ASKED;
+            currentPlayer++;
+            NSLog(@"%i", currentPlayer);
+            [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+            [nextButton setEnabled:false];
+            currentGameState = QUESTION_ASKED;
+
+            for(int i=0; i < currentAnnotations.count; i++) {
+                [myMapView removeAnnotation: [currentAnnotations objectAtIndex:i]];
+            }
+
             NSLog(@"new state: asked");
         }
         
-        if(currentPlayer >= playerCount){
+        if(currentPlayer >= playerCount) {
             float shortestDistance = 99999999999999;
             int bestPlayer = 0;
-            
             for(int i=0; i<playerCount; i++){
                 MapAnnotation *correctPosition = [[MapAnnotation alloc] initWithCoordinate: [currentQuestion answer]];
                 MapAnnotation *guessedPosition = [[MapAnnotation alloc] initWithCoordinate: guessedLocations[i]];
@@ -160,20 +170,44 @@
                     bestPlayer = i;
                 }
             }
-            NSString *message = [NSString stringWithFormat:@"Player %i, du lagst %f km daneben!", i, distance];
+            
+            NSString *message = [NSString stringWithFormat:@"Player %i hat gewonnen! (%f km)", bestPlayer + 1, shortestDistance];
+            
             [questionLabel setText: message];
-            [nextButton setTitle:@"next Question"];
+            [nextButton setTitle:@"next Question" forState:UIControlStateNormal];
+            [nextButton setEnabled:true];
+            
+            MapAnnotation *solution = [[MapAnnotation alloc] initWithCoordinate: currentQuestion.answer];
+            [currentAnnotations addObject:solution];
+            [myMapView addAnnotation:solution];
+            
+            for(int i=0; i < currentAnnotations.count; i++) {
+                [myMapView addAnnotation: [currentAnnotations objectAtIndex:i]];
+            }
+
             currentGameState = SHOW_ANSWER;
+            currentPlayer = 0;
             NSLog(@"new state: answer");
         }
+        
+        return;
     }
+
     if(currentGameState == SHOW_ANSWER){
         currentQuestion = [questions getNextQuestion];
         [questionLabel setText:currentQuestion.question];
-        [nextButton setTitle:@"Place Pin now"];
-        [nextButton setEnabled:false]
+        [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+        [nextButton setEnabled:false];
+        
         currentPlayer = 0;
         currentGameState = QUESTION_ASKED;
+        
+        for(int i=0; i < currentAnnotations.count; i++) {
+            [myMapView removeAnnotation: [currentAnnotations objectAtIndex:i]];
+        }
+        
+        [currentAnnotations removeAllObjects];
+        
         NSLog(@"new state: asked");
     }
 }
