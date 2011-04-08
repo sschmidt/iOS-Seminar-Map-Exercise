@@ -112,7 +112,8 @@
         {
             importantView.pinColor = MKPinAnnotationColorGreen;
         }
-        
+     
+    importantView.transform = CGAffineTransformMakeScale(2.0, 2.0); 
     importantView.annotation = annotation; 
     importantView.canShowCallout = NO;
     return importantView;  
