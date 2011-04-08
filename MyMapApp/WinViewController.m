@@ -10,7 +10,7 @@
 #import "MyMapAppViewController.h"
 
 @implementation WinViewController
-@synthesize winner, winnerLabel;
+@synthesize winner, winnerLabel, audioPlayer;
 
 
 - (void)dealloc
@@ -35,6 +35,14 @@
     winner++;
     NSString *winnerString = [NSString stringWithFormat: @"%i", winner];
     [winnerLabel setText: winnerString];
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/queenstripped.mp3", [[NSBundle mainBundle] resourcePath]]];
+    NSError *error;
+    
+	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    audioPlayer.numberOfLoops = -1;
+
+    [audioPlayer play];
 }
 
 - (void)viewDidUnload
@@ -55,6 +63,7 @@
     MyMapAppViewController *controller = [[MyMapAppViewController alloc] initWithNibName:@"MyMapAppViewController" bundle:nil];
     [self presentModalViewController:controller animated:YES];
     [controller autorelease];
+    [audioPlayer stop];
 }
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVFoundation/AVFoundation.h>
 
 @interface WinViewController : UIViewController {
     int winner;
     UILabel *winnerLabel;
+    AVAudioPlayer *audioPlayer;
 
 }
 
@@ -19,5 +20,7 @@
 
 @property (nonatomic,readwrite) int winner;
 @property (nonatomic, retain) IBOutlet UILabel *winnerLabel;
+@property (nonatomic, retain) AVAudioPlayer *audioPlayer;
+
 
 @end

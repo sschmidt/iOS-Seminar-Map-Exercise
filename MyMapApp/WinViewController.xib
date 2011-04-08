@@ -44,27 +44,27 @@
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="20646357">
+					<object class="IBUIImageView" id="3291256">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{52, 122}, {768, 1004}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1047535038"/>
+						<reference key="NSNextKeyView" ref="349866899"/>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">winscreen.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="81567040">
+					<object class="IBUIButton" id="377594545">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{234, 889}, {301, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="341051211">
+						<object class="NSColor" key="IBUIBackgroundColor" id="425387865">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
@@ -82,7 +82,7 @@
 						</object>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Next Game</string>
-						<reference key="IBUIHighlightedTitleColor" ref="341051211"/>
+						<reference key="IBUIHighlightedTitleColor" ref="425387865"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
@@ -92,13 +92,13 @@
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
 					</object>
-					<object class="IBUILabel" id="1047535038">
+					<object class="IBUILabel" id="349866899">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{496, 265}, {39, 101}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="81567040"/>
+						<reference key="NSNextKeyView" ref="377594545"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -126,7 +126,7 @@
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="20646357"/>
+				<reference key="NSNextKeyView" ref="3291256"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -154,7 +154,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">clickTheButton:</string>
-						<reference key="source" ref="81567040"/>
+						<reference key="source" ref="377594545"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -164,7 +164,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">winnerLabel</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="1047535038"/>
+						<reference key="destination" ref="349866899"/>
 					</object>
 					<int key="connectionID">14</int>
 				</object>
@@ -183,9 +183,9 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="20646357"/>
-							<reference ref="81567040"/>
-							<reference ref="1047535038"/>
+							<reference ref="3291256"/>
+							<reference ref="377594545"/>
+							<reference ref="349866899"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -202,18 +202,18 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">3</int>
-						<reference key="object" ref="20646357"/>
+						<reference key="object" ref="3291256"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
-						<reference key="object" ref="81567040"/>
+						<reference key="object" ref="377594545"/>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">Next Game</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
-						<reference key="object" ref="1047535038"/>
+						<reference key="object" ref="349866899"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
