@@ -12,7 +12,6 @@
 		5B2994E1134F0026009B3B1E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2994E0134F0026009B3B1E /* AVFoundation.framework */; };
 		5B2994E3134F021F009B3B1E /* jeopardy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994E2134F021F009B3B1E /* jeopardy.mp3 */; };
 		5B2994E9134F0C43009B3B1E /* WinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2994E7134F0C42009B3B1E /* WinViewController.m */; };
-		5B2994EC134F0F6E009B3B1E /* WinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994EB134F0F6D009B3B1E /* WinViewController.xib */; };
 		5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B548D21134DB4EA00A1740E /* LocationQuestion.m */; };
 		5B8C3035134F0FC400FC9E01 /* winscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C3034134F0FC400FC9E01 /* winscreen.png */; };
 		5B8C3038134F0FFD00FC9E01 /* WinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C3037134F0FFD00FC9E01 /* WinViewController.xib */; };
@@ -55,14 +54,13 @@
 		5B2994E2134F021F009B3B1E /* jeopardy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jeopardy.mp3; sourceTree = "<group>"; };
 		5B2994E6134F0C42009B3B1E /* WinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinViewController.h; sourceTree = "<group>"; };
 		5B2994E7134F0C42009B3B1E /* WinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinViewController.m; sourceTree = "<group>"; };
-		5B2994EB134F0F6D009B3B1E /* WinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WinViewController.xib; path = MyMapApp.xcodeproj/WinViewController.xib; sourceTree = "<group>"; };
 		5B548D20134DB4EA00A1740E /* LocationQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationQuestion.h; path = MyMapApp.xcodeproj/LocationQuestion.h; sourceTree = SOURCE_ROOT; };
 		5B548D21134DB4EA00A1740E /* LocationQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationQuestion.m; path = MyMapApp.xcodeproj/LocationQuestion.m; sourceTree = SOURCE_ROOT; };
 		5B8C3034134F0FC400FC9E01 /* winscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winscreen.png; sourceTree = "<group>"; };
 		5B8C3037134F0FFD00FC9E01 /* WinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinViewController.xib; sourceTree = "<group>"; };
 		5B8C3039134F17C500FC9E01 /* queenstripped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = queenstripped.mp3; sourceTree = "<group>"; };
 		BE5048D8134CB2E300B77219 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		BE53CAD1134C8F160071D5C2 /* MyMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE53CAD1134C8F160071D5C2 /* WorldTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE53CAD5134C8F160071D5C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE53CAD7134C8F160071D5C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE53CAD9134C8F160071D5C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,7 +119,6 @@
 			children = (
 				5B8C3039134F17C500FC9E01 /* queenstripped.mp3 */,
 				5B8C3034134F0FC400FC9E01 /* winscreen.png */,
-				5B2994EB134F0F6D009B3B1E /* WinViewController.xib */,
 				5B2994E2134F021F009B3B1E /* jeopardy.mp3 */,
 				5B2994E0134F0026009B3B1E /* AVFoundation.framework */,
 				5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */,
@@ -138,7 +135,7 @@
 		BE53CAD2134C8F160071D5C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE53CAD1134C8F160071D5C2 /* MyMapApp.app */,
+				BE53CAD1134C8F160071D5C2 /* WorldTap.app */,
 				BE53CAF5134C8F160071D5C2 /* MyMapAppTests.octest */,
 			);
 			name = Products;
@@ -211,9 +208,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE53CAD0134C8F160071D5C2 /* MyMapApp */ = {
+		BE53CAD0134C8F160071D5C2 /* WorldTap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE53CB08134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "MyMapApp" */;
+			buildConfigurationList = BE53CB08134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "WorldTap" */;
 			buildPhases = (
 				BE53CACD134C8F160071D5C2 /* Sources */,
 				BE53CACE134C8F160071D5C2 /* Frameworks */,
@@ -223,9 +220,9 @@
 			);
 			dependencies = (
 			);
-			name = MyMapApp;
+			name = WorldTap;
 			productName = MyMapApp;
-			productReference = BE53CAD1134C8F160071D5C2 /* MyMapApp.app */;
+			productReference = BE53CAD1134C8F160071D5C2 /* WorldTap.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BE53CAF4134C8F160071D5C2 /* MyMapAppTests */ = {
@@ -264,7 +261,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE53CAD0134C8F160071D5C2 /* MyMapApp */,
+				BE53CAD0134C8F160071D5C2 /* WorldTap */,
 				BE53CAF4134C8F160071D5C2 /* MyMapAppTests */,
 			);
 		};
@@ -281,7 +278,6 @@
 				5B2994DB134E4028009B3B1E /* System-Map-icon.png in Resources */,
 				5B2994DF134E4246009B3B1E /* Default-Portrait~ipad.png in Resources */,
 				5B2994E3134F021F009B3B1E /* jeopardy.mp3 in Resources */,
-				5B2994EC134F0F6E009B3B1E /* WinViewController.xib in Resources */,
 				5B8C3035134F0FC400FC9E01 /* winscreen.png in Resources */,
 				5B8C3038134F0FFD00FC9E01 /* WinViewController.xib in Resources */,
 				5B8C303A134F17C500FC9E01 /* queenstripped.mp3 in Resources */,
@@ -343,7 +339,7 @@
 /* Begin PBXTargetDependency section */
 		BE53CAFA134C8F160071D5C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE53CAD0134C8F160071D5C2 /* MyMapApp */;
+			target = BE53CAD0134C8F160071D5C2 /* WorldTap */;
 			targetProxy = BE53CAF9134C8F160071D5C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -504,7 +500,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE53CB08134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "MyMapApp" */ = {
+		BE53CB08134C8F160071D5C2 /* Build configuration list for PBXNativeTarget "WorldTap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE53CB09134C8F160071D5C2 /* Debug */,

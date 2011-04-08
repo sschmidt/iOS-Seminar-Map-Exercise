@@ -70,10 +70,11 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{    
-    return YES;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{    
+//    return YES;
+//}
+
 
 - (void) initializeMap
 {
@@ -287,7 +288,7 @@
         [currentAnnotations removeAllObjects];
         
         for(int i=0; i < playerCount; i++){
-            if(playerScores[i] >= 1) {
+            if(playerScores[i] >= 3) {
                 NSLog(@"Game Over");
                 WinViewController *controller = [[WinViewController alloc] initWithNibName:@"WinViewController" bundle:nil];
                 controller.winner = i;
