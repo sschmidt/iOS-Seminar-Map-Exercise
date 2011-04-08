@@ -7,6 +7,7 @@
 //
 
 #import "MyMapAppViewController.h"
+#import "WinViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
@@ -115,6 +116,7 @@
      
     importantView.transform = CGAffineTransformMakeScale(2.0, 2.0); 
     importantView.annotation = annotation; 
+
     importantView.canShowCallout = NO;
     return importantView;  
     } 
@@ -264,11 +266,13 @@
         return;
     }
 
-    if(currentGameState == SHOW_ANSWER){
+    if(currentGameState == SHOW_ANSWER) {
         currentQuestion = [questions getNextQuestion];
         [questionLabel setText:currentQuestion.question];
+        
         [nextButton setEnabled:false];
         [nextButton setTitle:@"Place Pin now" forState:UIControlStateNormal];
+
         nextButton.alpha = 0.5;
         
         currentPlayer = 0;
@@ -282,6 +286,16 @@
         
         [currentAnnotations removeAllObjects];
         
+        for(int i=0; i < playerCount; i++){
+            if(playerScores[i] >= 5) {
+                NSLog(@"Game Over");
+                WinViewController *controller = [[WinViewController alloc] initWithNibName:@"WinViewController" bundle:nil];
+                [audioPlayer stop];
+                [self presentModalViewController:controller animated:YES];
+                [controller autorelease];
+            }
+        }
+
         NSLog(@"new state: asked");
     }
 }

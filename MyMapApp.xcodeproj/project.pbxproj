@@ -11,7 +11,11 @@
 		5B2994DF134E4246009B3B1E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */; };
 		5B2994E1134F0026009B3B1E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2994E0134F0026009B3B1E /* AVFoundation.framework */; };
 		5B2994E3134F021F009B3B1E /* jeopardy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994E2134F021F009B3B1E /* jeopardy.mp3 */; };
+		5B2994E9134F0C43009B3B1E /* WinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2994E7134F0C42009B3B1E /* WinViewController.m */; };
+		5B2994EC134F0F6E009B3B1E /* WinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994EB134F0F6D009B3B1E /* WinViewController.xib */; };
 		5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B548D21134DB4EA00A1740E /* LocationQuestion.m */; };
+		5B8C3035134F0FC400FC9E01 /* winscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C3034134F0FC400FC9E01 /* winscreen.png */; };
+		5B8C3038134F0FFD00FC9E01 /* WinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C3037134F0FFD00FC9E01 /* WinViewController.xib */; };
 		BE5048D9134CB2E300B77219 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5048D8134CB2E300B77219 /* CoreLocation.framework */; };
 		BE53CAD6134C8F160071D5C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD5134C8F160071D5C2 /* UIKit.framework */; };
 		BE53CAD8134C8F160071D5C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD7134C8F160071D5C2 /* Foundation.framework */; };
@@ -48,8 +52,13 @@
 		5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		5B2994E0134F0026009B3B1E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5B2994E2134F021F009B3B1E /* jeopardy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jeopardy.mp3; sourceTree = "<group>"; };
+		5B2994E6134F0C42009B3B1E /* WinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinViewController.h; sourceTree = "<group>"; };
+		5B2994E7134F0C42009B3B1E /* WinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinViewController.m; sourceTree = "<group>"; };
+		5B2994EB134F0F6D009B3B1E /* WinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WinViewController.xib; path = MyMapApp.xcodeproj/WinViewController.xib; sourceTree = "<group>"; };
 		5B548D20134DB4EA00A1740E /* LocationQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationQuestion.h; path = MyMapApp.xcodeproj/LocationQuestion.h; sourceTree = SOURCE_ROOT; };
 		5B548D21134DB4EA00A1740E /* LocationQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationQuestion.m; path = MyMapApp.xcodeproj/LocationQuestion.m; sourceTree = SOURCE_ROOT; };
+		5B8C3034134F0FC400FC9E01 /* winscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winscreen.png; sourceTree = "<group>"; };
+		5B8C3037134F0FFD00FC9E01 /* WinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinViewController.xib; sourceTree = "<group>"; };
 		BE5048D8134CB2E300B77219 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BE53CAD1134C8F160071D5C2 /* MyMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE53CAD5134C8F160071D5C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -108,6 +117,8 @@
 		BE53CAC6134C8F160071D5C2 = {
 			isa = PBXGroup;
 			children = (
+				5B8C3034134F0FC400FC9E01 /* winscreen.png */,
+				5B2994EB134F0F6D009B3B1E /* WinViewController.xib */,
 				5B2994E2134F021F009B3B1E /* jeopardy.mp3 */,
 				5B2994E0134F0026009B3B1E /* AVFoundation.framework */,
 				5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */,
@@ -147,6 +158,8 @@
 				BE53CAE5134C8F160071D5C2 /* MyMapAppAppDelegate.m */,
 				BE53CAE7134C8F160071D5C2 /* MainWindow.xib */,
 				BE53CAEA134C8F160071D5C2 /* MyMapAppViewController.h */,
+				5B2994E6134F0C42009B3B1E /* WinViewController.h */,
+				5B2994E7134F0C42009B3B1E /* WinViewController.m */,
 				BE53CAEB134C8F160071D5C2 /* MyMapAppViewController.m */,
 				BE53CAED134C8F160071D5C2 /* MyMapAppViewController.xib */,
 				5B548D20134DB4EA00A1740E /* LocationQuestion.h */,
@@ -156,6 +169,7 @@
 				BEF3AD23134DE6FF00AFC70C /* MapAnnotation.m */,
 				BEB56BF0134DFDB900312084 /* LocationQuestionDatabase.h */,
 				BEB56BF1134DFDB900312084 /* LocationQuestionDatabase.m */,
+				5B8C3037134F0FFD00FC9E01 /* WinViewController.xib */,
 			);
 			path = MyMapApp;
 			sourceTree = "<group>";
@@ -264,6 +278,9 @@
 				5B2994DB134E4028009B3B1E /* System-Map-icon.png in Resources */,
 				5B2994DF134E4246009B3B1E /* Default-Portrait~ipad.png in Resources */,
 				5B2994E3134F021F009B3B1E /* jeopardy.mp3 in Resources */,
+				5B2994EC134F0F6E009B3B1E /* WinViewController.xib in Resources */,
+				5B8C3035134F0FC400FC9E01 /* winscreen.png in Resources */,
+				5B8C3038134F0FFD00FC9E01 /* WinViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +322,7 @@
 				5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */,
 				BEF3AD24134DE6FF00AFC70C /* MapAnnotation.m in Sources */,
 				BEB56BF2134DFDB900312084 /* LocationQuestionDatabase.m in Sources */,
+				5B2994E9134F0C43009B3B1E /* WinViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
