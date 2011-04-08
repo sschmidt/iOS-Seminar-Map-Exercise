@@ -12,6 +12,8 @@
 #import "LocationQuestion.h"
 #import "MapAnnotation.h"
 #import "LocationQuestionDatabase.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
 
@@ -32,6 +34,8 @@ enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
     enum currentGameStateEnum currentGameState;
     LocationQuestionDatabase *questions;
     NSMutableArray *currentAnnotations;
+    AVAudioPlayer *audioPlayer;
+
    
 }
 
@@ -49,5 +53,6 @@ enum currentGameStateEnum {START, QUESTION_ASKED, PIN_SET, SHOW_ANSWER};
 @property (nonatomic, assign) enum currentGameStateEnum currentGameState;
 @property (nonatomic, retain) LocationQuestionDatabase *questions;
 @property (nonatomic, retain) NSMutableArray *currentAnnotations;
+@property (nonatomic, retain) AVAudioPlayer *audioPlayer;
 
 @end

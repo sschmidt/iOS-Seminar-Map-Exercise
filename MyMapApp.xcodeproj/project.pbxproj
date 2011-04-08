@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B2994DB134E4028009B3B1E /* System-Map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994DA134E4028009B3B1E /* System-Map-icon.png */; };
 		5B2994DF134E4246009B3B1E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */; };
+		5B2994E1134F0026009B3B1E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2994E0134F0026009B3B1E /* AVFoundation.framework */; };
+		5B2994E3134F021F009B3B1E /* jeopardy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B2994E2134F021F009B3B1E /* jeopardy.mp3 */; };
 		5B548D22134DB4EA00A1740E /* LocationQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B548D21134DB4EA00A1740E /* LocationQuestion.m */; };
 		BE5048D9134CB2E300B77219 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5048D8134CB2E300B77219 /* CoreLocation.framework */; };
 		BE53CAD6134C8F160071D5C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53CAD5134C8F160071D5C2 /* UIKit.framework */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		5B2994DA134E4028009B3B1E /* System-Map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "System-Map-icon.png"; sourceTree = "<group>"; };
 		5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		5B2994E0134F0026009B3B1E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5B2994E2134F021F009B3B1E /* jeopardy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jeopardy.mp3; sourceTree = "<group>"; };
 		5B548D20134DB4EA00A1740E /* LocationQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationQuestion.h; path = MyMapApp.xcodeproj/LocationQuestion.h; sourceTree = SOURCE_ROOT; };
 		5B548D21134DB4EA00A1740E /* LocationQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationQuestion.m; path = MyMapApp.xcodeproj/LocationQuestion.m; sourceTree = SOURCE_ROOT; };
 		BE5048D8134CB2E300B77219 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2994E1134F0026009B3B1E /* AVFoundation.framework in Frameworks */,
 				BE5048D9134CB2E300B77219 /* CoreLocation.framework in Frameworks */,
 				BE53CB0F134C8F350071D5C2 /* MapKit.framework in Frameworks */,
 				BE53CAD6134C8F160071D5C2 /* UIKit.framework in Frameworks */,
@@ -103,6 +108,8 @@
 		BE53CAC6134C8F160071D5C2 = {
 			isa = PBXGroup;
 			children = (
+				5B2994E2134F021F009B3B1E /* jeopardy.mp3 */,
+				5B2994E0134F0026009B3B1E /* AVFoundation.framework */,
 				5B2994DD134E404F009B3B1E /* Default-Portrait~ipad.png */,
 				5B2994DA134E4028009B3B1E /* System-Map-icon.png */,
 				BE5048D8134CB2E300B77219 /* CoreLocation.framework */,
@@ -256,6 +263,7 @@
 				BE53CAEF134C8F160071D5C2 /* MyMapAppViewController.xib in Resources */,
 				5B2994DB134E4028009B3B1E /* System-Map-icon.png in Resources */,
 				5B2994DF134E4246009B3B1E /* Default-Portrait~ipad.png in Resources */,
+				5B2994E3134F021F009B3B1E /* jeopardy.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@
 
 
 @implementation MyMapAppViewController
-@synthesize myMapView, myquesitonarray, questionLabel, playerLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations;
+@synthesize myMapView, myquesitonarray, questionLabel, playerLabel, currentQuestion, myPress, nextButton, playerCount, currentPlayer, playerScores, guessedLocations, currentGameState, questions, currentAnnotations, audioPlayer;
 
 - (void)dealloc {
     self.myPress = nil;
@@ -53,6 +53,12 @@
     for(int i=0; i<playerCount; i++){
         playerScores[i] = 0;
     }
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/jeopardy.mp3", [[NSBundle mainBundle] resourcePath]]];
+    NSError *error;
+	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    audioPlayer.numberOfLoops = -1;
+    [audioPlayer play];
     
 }
 
