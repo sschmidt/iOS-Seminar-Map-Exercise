@@ -10,9 +10,14 @@
 
 
 @interface WinViewController : UIViewController {
-    
+    int winner;
+    UILabel *winnerLabel;
+
 }
 
 - (IBAction)clickTheButton:(id)sender;
+
+@property (nonatomic,readwrite) int winner;
+@property (nonatomic, retain) IBOutlet UILabel *winnerLabel;
 
 @end

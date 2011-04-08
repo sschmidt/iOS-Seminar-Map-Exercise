@@ -287,9 +287,10 @@
         [currentAnnotations removeAllObjects];
         
         for(int i=0; i < playerCount; i++){
-            if(playerScores[i] >= 5) {
+            if(playerScores[i] >= 1) {
                 NSLog(@"Game Over");
                 WinViewController *controller = [[WinViewController alloc] initWithNibName:@"WinViewController" bundle:nil];
+                controller.winner = i;
                 [audioPlayer stop];
                 [self presentModalViewController:controller animated:YES];
                 [controller autorelease];

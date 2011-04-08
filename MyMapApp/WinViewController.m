@@ -10,15 +10,8 @@
 #import "MyMapAppViewController.h"
 
 @implementation WinViewController
+@synthesize winner, winnerLabel;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)dealloc
 {
@@ -38,7 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSLog(@"Winner: %i", winner);
+    winner++;
+    NSString *winnerString = [NSString stringWithFormat: @"%i", winner];
+    [winnerLabel setText: winnerString];
 }
 
 - (void)viewDidUnload
